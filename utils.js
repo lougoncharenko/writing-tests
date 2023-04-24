@@ -7,15 +7,18 @@ const sayHello = () => {
 }
 
 const area = (w, h) => {
-  // should return the area
+  return w * h
 }
 
 const perimeter = (w, h) => {
-  // should return the perimeter
+  const width = 2*w
+  const height = 2*h
+  return width + height
 }
 
 const circleArea = r => {
-  // should return the area of the circle
+  const radius = r*r
+  return 3.14 * radius
 }
 
 // ========================================================
@@ -35,21 +38,51 @@ const createItem = (name, price) => {
   return { name, price, quantity: 1 }
 }
 
-const getShoppingCart = () => {
+const getShoppingCart = (...params) => {
   // should return the current state of shopping cart
+ let cart = []
+ cart = params
+ return cart
 }
 
-const addItemToCart = (item) => {
-  // should add item to shopping cart
+const addItemToCart = (cart, newItem) => {
+  cart.push(newItem)
+  return cart
 }
 
-const getNumItemsInCart = () => {
+const getNumItemsInCart = (array) => {
   // should return the total quantity of items in cart
+  console.log(array)
+  let quantity = 0;
+  for (let i = 0; i < array.length; i++) {
+   if (array[i] instanceof Object) {
+      quantity++;
+   }
+}
+  return quantity
 }
 
-const removeItemFromCart = (item) => {
+const removeItemFromCart = (arr, attr, value) => {
   // should remove item from shopping cart
+  let i = arr.length;
+    while(i--){
+       if(arr[i] 
+           && arr[i].hasOwnProperty(attr) 
+           && (arguments.length > 2 && arr[i][attr] === value ) ){ 
+           arr.splice(i,1);
+
+       }
+    }
+    let quantity = 0;
+    for (let i = 0; i < arr.length; i++) {
+     if (arr[i] instanceof Object) {
+        quantity++;
+     }
+  }
+    return quantity
+    
 }
+
 
 module.exports = {
   sayHello, area, perimeter, circleArea,
